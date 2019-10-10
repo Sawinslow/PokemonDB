@@ -23,6 +23,7 @@ public class Pokemon {
 	@Column(name = "HP")
 	private int hp;
 	
+	//Default no args constructor
 	public Pokemon() {
 		super();
 	}
