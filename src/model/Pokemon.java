@@ -27,17 +27,6 @@ public class Pokemon {
 	public Pokemon() {
 		super();
 	}
-	
-	
-	public Pokemon(String name, String type, int level, int hp) {
-		super();
-		this.name = name;
-		this.type = type;
-		this.level = level;
-		this.hp = hp;
-	}
-
-
 
 	public int getId() {
 		return id;
