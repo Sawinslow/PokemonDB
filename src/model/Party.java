@@ -16,7 +16,6 @@ public class Party {
 	private int Trainerid;
 	@Column(name = "POKEMON_ID")
 	private int pokemonid;
-
 	public Party(int trainerid, int pokemonid) {
 		super();
 		Trainerid = trainerid;
