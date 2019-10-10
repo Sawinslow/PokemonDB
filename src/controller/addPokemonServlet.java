@@ -33,7 +33,7 @@ public class addPokemonServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String pokemonName = request.getParameter("name");
-		String Type = request.getParameter("Type");
+		String Type = request.getParameter("type");
 		int Level = Integer.parseInt(request.getParameter("level"));
 		int HP = Integer.parseInt(request.getParameter("hp"));
 		
