@@ -33,5 +33,4 @@ public class PokemonHelper {
 		List<Pokemon> allPokemon = em.createQuery("SELECT p FROM Pokemon p").getResultList();
 		return allPokemon;
 	}
-
 }

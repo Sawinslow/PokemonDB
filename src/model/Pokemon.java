@@ -27,8 +27,7 @@ public class Pokemon {
 	public Pokemon() {
 		super();
 	}
-	
-	
+
 	public int getId() {
 		return id;
 	}
@@ -71,5 +70,15 @@ public class Pokemon {
 	public String toString() {
 		return "Pokemon [id=" + id + ", name=" + name + ", type=" + type + ", level=" + level + ", hp=" + hp + "]";
 	}
+
+
+	public Pokemon(String name, String type, int level, int hp) {
+		super();
+		this.name = name;
+		this.type = type;
+		this.level = level;
+		this.hp = hp;
+	}
+	
 	
 }
