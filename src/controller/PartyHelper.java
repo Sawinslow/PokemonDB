@@ -6,27 +6,23 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import model.Trainer;
+import model.Party;
 
-
-public class TrainerHelper {
-
+public class PartyHelper {
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Pokemon");
-	
 
-	public void insertTrainer(Trainer t) {
+	public void insertParty(Party p) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		em.persist(t);
+		em.persist(p);
 		em.getTransaction().commit();
 		em.close();
 	}
-	
 
-	public List<Trainer> showAllTrainer() {
+	public List<Party> showAllParty() {
 		EntityManager em = emfactory.createEntityManager();
 		@SuppressWarnings("unchecked")
-		List<Trainer> allTrainers = em.createQuery("SELECT t FROM Trainer t").getResultList();
-		return allTrainers;
+		List<Party> allParty = em.createQuery("SELECT p FROM Party p").getResultList();
+		return allParty;
 	}
 }
