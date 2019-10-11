@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `pokemon` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+USE `pokemon`;
 -- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
 -- Host: localhost    Database: pokemon
@@ -23,12 +25,12 @@ DROP TABLE IF EXISTS `party`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `party` (
+  `PARTY_ID` int(11) NOT NULL AUTO_INCREMENT,
   `TRAINER_ID` int(11) NOT NULL,
-  `POKEMON_ID` int(11) NOT NULL,
+  `TRAINER_NAME` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`PARTY_ID`),
   KEY `TRAINER_ID` (`TRAINER_ID`),
-  KEY `POKEMON_ID` (`POKEMON_ID`),
-  CONSTRAINT `party_ibfk_1` FOREIGN KEY (`TRAINER_ID`) REFERENCES `trainer` (`TRAINER_ID`),
-  CONSTRAINT `party_ibfk_2` FOREIGN KEY (`POKEMON_ID`) REFERENCES `pokemon` (`POKEMON_ID`)
+  CONSTRAINT `party_ibfk_1` FOREIGN KEY (`TRAINER_ID`) REFERENCES `trainer` (`TRAINER_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,7 +40,6 @@ CREATE TABLE `party` (
 
 LOCK TABLES `party` WRITE;
 /*!40000 ALTER TABLE `party` DISABLE KEYS */;
-INSERT INTO `party` VALUES (1,1);
 /*!40000 ALTER TABLE `party` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-07 19:52:48
+-- Dump completed on 2019-10-10 20:24:55
