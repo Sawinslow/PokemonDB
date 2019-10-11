@@ -61,6 +61,12 @@ public class Trainer {
 		Trainer_Name = trainer_Name;
 		Num_of_badges = num_of_badges;
 	}
+	
+	public Trainer(String trainer_Name, int num_of_badges) {
+		super();
+		Trainer_Name = trainer_Name;
+		Num_of_badges = num_of_badges;
+	}
 
 
 	@Override
