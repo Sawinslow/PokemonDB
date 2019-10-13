@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +21,9 @@ public class Trainer {
 	private String Trainer_Name;
 	@Column(name = "NUM_OF_BADGES")
 	private int Num_of_badges;
-	
+	@Column(name = "birthday")
+	private LocalDate birthday;
+
 	public Trainer() {
 		super();
 	}
@@ -58,6 +62,12 @@ public class Trainer {
 	public Trainer(int trainer_ID, String trainer_Name, int num_of_badges) {
 		super();
 		Trainer_ID = trainer_ID;
+		Trainer_Name = trainer_Name;
+		Num_of_badges = num_of_badges;
+	}
+	
+	public Trainer(String trainer_Name, int num_of_badges) {
+		super();
 		Trainer_Name = trainer_Name;
 		Num_of_badges = num_of_badges;
 	}
