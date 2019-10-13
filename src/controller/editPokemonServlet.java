@@ -6,8 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import model.ListMovies;
 import model.Pokemon;
 
 /**
@@ -48,21 +46,19 @@ public class editPokemonServlet extends HttpServlet {
 
 		Integer Level = Integer.parseInt(request.getParameter("pokemonLevel"));
 		Integer Health = Integer.parseInt(request.getParameter("pokemonHealth"));
-		
+
 		Integer tempID = Integer.parseInt(request.getParameter("ID"));
 
-		Pokemon MovietoUpdate = ph.searchForMovieById(tempID);
+		Pokemon PokemontoUpdate = ph.searchForMovieById(tempID);
 
-		MovietoUpdate.setMovie(movie);
+		PokemontoUpdate.setName(name);
+		PokemontoUpdate.setType(type);
+		PokemontoUpdate.setHp(Health);
+		PokemontoUpdate.setLevel(Level);
 
-		int rate = Integer.parseInt(rating);
-		MovietoUpdate.setRaiting(rate);
+		ph.updatePokemon(PokemontoUpdate);
 
-		MovietoUpdate.setMainCharacter(maincharacter);
-
-		mov.updateItem(MovietoUpdate);
-
-		getServletContext().getRequestDispatcher("/viewAllMovieServlet").forward(request, response);
+		getServletContext().getRequestDispatcher("/viewAllPokemonServlet").forward(request, response);
 
 	}
 

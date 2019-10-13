@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+
 import model.Pokemon;
 
 public class PokemonHelper {
@@ -33,4 +34,21 @@ public class PokemonHelper {
 		List<Pokemon> allPokemon = em.createQuery("SELECT p FROM Pokemon p").getResultList();
 		return allPokemon;
 	}
+	
+	public Pokemon searchForMovieById(int idToEdit) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Pokemon found = em.find(Pokemon.class, idToEdit);
+		em.close();
+		return found;
+	}
+	public void updatePokemon(Pokemon toEdit) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		em.merge(toEdit);
+		em.getTransaction().commit();
+		em.close();
+
+	}
+	
 }
