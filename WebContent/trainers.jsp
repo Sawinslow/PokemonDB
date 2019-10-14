@@ -14,7 +14,7 @@
 			<c:forEach items = "${requestScope.allParties}" var = "currentParty">
 				<tr>
 					<td><input type = "radio" name = "id" value = "${currentParty.partyId}"></td>
-					<td><h2>${currentParty.getTrainerName()}</h2></td>
+					<td><h2>${currentParty.getTrainer().getTrainer_Name()}</h2></td>
 					
 				</tr>
 				<c:forEach var = "pokemonVal" items = "${currentParty.pokemonParty}">
