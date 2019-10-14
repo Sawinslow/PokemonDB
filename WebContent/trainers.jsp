@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h2>Pokemon Trainers:</h2>
-	<form method = "post" action = "">
+	<form method = "post" action = "navigationServelt">
 		<table>
 			<c:forEach items = "${requestScope.allParties}" var = "currentParty">
 				<tr>
@@ -25,6 +25,7 @@
 		</c:forEach>
 			</c:forEach>
 		</table>
+		<input type="submit" value="delete trainer" name="formAction">
 	</form>
 </body>
 </html>

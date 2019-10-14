@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
+import javax.persistence.TypedQuery;
 
 import model.Pokemon;
 
@@ -48,7 +48,24 @@ public class PokemonHelper {
 		em.merge(toEdit);
 		em.getTransaction().commit();
 		em.close();
+	}
+	
+	public void deletePokemon(Pokemon pokemonToDelete) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		//Query to delete based off user input
+		TypedQuery<Pokemon> typedQuery = em.createQuery("select p from Pokemon p where p.id = :selectedid",Pokemon.class);
+		
+		// putting the id into the query 
+		typedQuery.setParameter("selectedid", pokemonToDelete.getId());
+		//Only getting one result so we only delete one thing no matter what
+		typedQuery.setMaxResults(1);
 
+		// Gets the result to remove it
+		Pokemon result = typedQuery.getSingleResult();
+		em.remove(result);
+		em.getTransaction().commit();
+		em.close();
 	}
 	
 }
