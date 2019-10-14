@@ -27,5 +27,6 @@
 		<input type="submit" value="edit Pokemon" name="formAction">
 		<input type="submit" value="delete Pokemon" name="formAction">
 	</form>
+	<a href = "index.html">Go Back Home</a>
 </body>
 </html>
