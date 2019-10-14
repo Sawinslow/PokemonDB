@@ -29,6 +29,16 @@ public class Trainer {
 	}
 
 
+	public LocalDate getBirthday() {
+		return birthday;
+	}
+
+
+	public void setBirthday(LocalDate birthday) {
+		this.birthday = birthday;
+	}
+
+
 	public int getTrainer_ID() {
 		return Trainer_ID;
 	}
@@ -70,6 +80,23 @@ public class Trainer {
 		super();
 		Trainer_Name = trainer_Name;
 		Num_of_badges = num_of_badges;
+	}
+
+
+	public Trainer(String trainer_Name, int num_of_badges, LocalDate birthday) {
+		super();
+		Trainer_Name = trainer_Name;
+		Num_of_badges = num_of_badges;
+		this.birthday = birthday;
+	}
+
+
+	public Trainer(int trainer_ID, String trainer_Name, int num_of_badges, LocalDate birthday) {
+		super();
+		Trainer_ID = trainer_ID;
+		Trainer_Name = trainer_Name;
+		Num_of_badges = num_of_badges;
+		this.birthday = birthday;
 	}
 
 

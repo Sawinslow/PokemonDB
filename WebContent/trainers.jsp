@@ -9,12 +9,12 @@
 </head>
 <body>
 	<h2>Pokemon Trainers:</h2>
-	<form method = "post" action = "">
+	<form method = "post" action = "addTrainerForListServlet">
 		<table>
 			<c:forEach items = "${requestScope.allParties}" var = "currentParty">
 				<tr>
 					<td><input type = "radio" name = "id" value = "${currentParty.partyId}"></td>
-					<td><h2>${currentParty.getTrainerName()}</h2></td>
+					<td><h2>${currentParty.getTrainer().getTrainer_Name()}</h2></td>
 					
 				</tr>
 				<c:forEach var = "pokemonVal" items = "${currentParty.pokemonParty}">
@@ -25,6 +25,7 @@
 		</c:forEach>
 			</c:forEach>
 		</table>
+		</select> <br /> <input type="submit" value="Create Trainer">
 	</form>
 </body>
 </html>
