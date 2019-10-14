@@ -32,13 +32,12 @@ public class ViewAllTrainersServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PartyHelper ph = new PartyHelper();
-		//Getting a list of all the parties to show on the webpage
-		List<Party> allParties = new ArrayList<>();
+		
 		//Sending the list to the JSP to be displayed
-		request.setAttribute("allParties", allParties);
+		request.setAttribute("allParties", ph.showAllParty());
 		
 		//Sending an empty string to the JSP if there's no parties
-		if(allParties.isEmpty()) {
+		if(ph.showAllParty().isEmpty()) {
 			request.setAttribute("allParties", " "); 
 		}
 		

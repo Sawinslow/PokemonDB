@@ -26,7 +26,7 @@ public class Party {
 	private String trainerName;
 	@ManyToOne
 	@JoinColumn(name = "TRAINER_ID")
-	private Trainer Trainer;
+	private Trainer trainer;
 	
 	@OneToMany(cascade= CascadeType.PERSIST, fetch=FetchType.EAGER)
 	@JoinTable(
@@ -39,29 +39,20 @@ public class Party {
 		super();
 	}
 	
-	public Party(String trainerName, model.Trainer trainer) {
+	public Party(String trainerName, Trainer trainer) {
 		super();
 		this.trainerName = trainerName;
-		Trainer = trainer;
+		this.trainer = trainer;
 	}
 	
-	public String getPartyname() {
-		return trainerName;
-	}
-
-	public void setPartyname(String trainerName) {
+	public Party(String trainerName, Trainer trainer, List<Pokemon> pokemonParty) {
+		super();
 		this.trainerName = trainerName;
+		this.trainer = trainer;
+		this.pokemonParty = pokemonParty;
 	}
 
-	public Trainer getTrainer() {
-		return Trainer;
-	}
-
-	public void setTrainer(Trainer trainer) {
-		Trainer = trainer;
-	}
-
-
+	
 
 	public int getPartyId() {
 		return partyId;
@@ -69,6 +60,22 @@ public class Party {
 
 	public void setPartyId(int partyId) {
 		this.partyId = partyId;
+	}
+
+	public String getTrainerName() {
+		return trainerName;
+	}
+
+	public void setTrainerName(String trainerName) {
+		this.trainerName = trainerName;
+	}
+
+	public Trainer getTrainer() {
+		return trainer;
+	}
+
+	public void setTrainer(Trainer trainer) {
+		this.trainer = trainer;
 	}
 
 	public List<Pokemon> getPokemonParty() {
@@ -81,7 +88,7 @@ public class Party {
 
 	@Override
 	public String toString() {
-		return "Party [partyId=" + partyId + ", trainerName=" + trainerName + ", Trainer=" + Trainer + ", pokemonParty="
+		return "Party [partyId=" + partyId + ", trainerName=" + trainerName + ", Trainer=" + trainer + ", pokemonParty="
 				+ pokemonParty + "]";
 	}
 

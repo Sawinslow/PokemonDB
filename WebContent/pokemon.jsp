@@ -24,7 +24,7 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<input type="submit" value="edit" name="edit">
+		<input type="submit" value="edit" name="editPokemon">
 	</form>
 </body>
 </html>
