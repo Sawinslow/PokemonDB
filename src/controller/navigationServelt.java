@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Party;
 import model.Pokemon;
 
 /**
@@ -37,11 +38,46 @@ public class navigationServelt extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PokemonHelper ph = new PokemonHelper();
-		Integer tempID = Integer.parseInt(request.getParameter("id"));
+		PartyHelper partyHelp = new PartyHelper();
+		String action = request.getParameter("formAction");
+		
+		if(action.equals("edit Pokemon")) {
+			Integer tempID = Integer.parseInt(request.getParameter("id"));
 		Pokemon pokemonToEdit = ph.searchForPokemonById(tempID);
 		System.out.println(pokemonToEdit);
 		request.setAttribute("pokemonToEdit", pokemonToEdit);
 		getServletContext().getRequestDispatcher("/editPokemon.jsp").forward(request,response);
+		}
+		
+		else if(action.equals("delete trainer")) {
+			try {
+				//Getting the id the user selected
+				Integer idToDelete = Integer.parseInt(request.getParameter("id"));
+				//Searches for which list details it is in the database and assigns it to new list details
+				Party trainerToDelete = partyHelp.searchForTrainerById(idToDelete);
+				//Deletes it from the database
+				partyHelp.deleteTrainer(trainerToDelete);
+			}catch(NumberFormatException e) {
+				System.out.println("Forgot to click button");
+			}finally {
+				//refreshes
+				getServletContext().getRequestDispatcher("/ViewAllTrainersServlet").forward(request, response);
+			}
+		}
+		
+		else if(action.equals("delete Pokemon")) {
+			try {
+				Integer idToDelete = Integer.parseInt(request.getParameter("id"));
+				Pokemon pokemonToDelete = ph.searchForPokemonById(idToDelete);
+				ph.deletePokemon(pokemonToDelete);
+				
+			}catch(NumberFormatException e) {
+				System.out.println("Didn't hit button");
+			}finally {
+				getServletContext().getRequestDispatcher("/ViewAllPokemonServlet").forward(request, response);
+			}
+		}
+		
 	}
 
 }
