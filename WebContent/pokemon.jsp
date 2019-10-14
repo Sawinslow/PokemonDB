@@ -12,7 +12,7 @@
 <h2>All Pokemon:</h2>
 
 <!-- TODO: Make Edit servlet, edit/delete functionality -->
-	<form method = "post" action = "EditServlet">
+	<form method = "post" action = "navigationServelt">
 		<table>
 			<c:forEach items = "${requestScope.allPokemon}" var = "currentPokemon">
 				<tr>
@@ -24,6 +24,7 @@
 				</tr>
 			</c:forEach>
 		</table>
+		<input type="submit" value="edit" name="edit">
 	</form>
 </body>
 </html>

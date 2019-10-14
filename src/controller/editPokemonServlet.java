@@ -44,21 +44,26 @@ public class editPokemonServlet extends HttpServlet {
 		String name = request.getParameter("pokemonName");
 		String type = request.getParameter("pokemonType");
 
-		Integer Level = Integer.parseInt(request.getParameter("pokemonLevel"));
-		Integer Health = Integer.parseInt(request.getParameter("pokemonHealth"));
+		String Level = request.getParameter("pokemonLevel");
+		String Health = request.getParameter("pokemonHealth");
+		
+		Integer tempID = Integer.parseInt(request.getParameter("id"));
+		
+		int Healthint = Integer.parseInt(Health);
+		int Levelint = Integer.parseInt(Level);
+		
+		
 
-		Integer tempID = Integer.parseInt(request.getParameter("ID"));
-
-		Pokemon PokemontoUpdate = ph.searchForMovieById(tempID);
+		Pokemon PokemontoUpdate = ph.searchForPokemonById(tempID);
 
 		PokemontoUpdate.setName(name);
 		PokemontoUpdate.setType(type);
-		PokemontoUpdate.setHp(Health);
-		PokemontoUpdate.setLevel(Level);
+		PokemontoUpdate.setHp(Healthint);
+		PokemontoUpdate.setLevel(Levelint);
 
 		ph.updatePokemon(PokemontoUpdate);
 
-		getServletContext().getRequestDispatcher("/viewAllPokemonServlet").forward(request, response);
+		getServletContext().getRequestDispatcher("/ViewAllPokemonServlet").forward(request, response);
 
 	}
 

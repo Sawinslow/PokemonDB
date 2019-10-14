@@ -35,7 +35,7 @@ public class PokemonHelper {
 		return allPokemon;
 	}
 	
-	public Pokemon searchForMovieById(int idToEdit) {
+	public Pokemon searchForPokemonById(int idToEdit) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		Pokemon found = em.find(Pokemon.class, idToEdit);

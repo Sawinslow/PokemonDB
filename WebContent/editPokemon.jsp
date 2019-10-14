@@ -10,14 +10,15 @@
 <body>
 	<form action="editPokemonServlet" method="post">
 		Pokemon Name: <input type="text" name="pokemonName"
-			value="${ThePokemon.listName}"><br /> 
-			Pokemon Type: <input type="text" name="pokemonType]"
-			value="${ThePokemon.listName}"><br /> 
-			 <input type="hidden" name="id" value="${ThePokemon.id}"> Current
+			value="${pokemonToEdit.name}"><br /> 
+			Pokemon Type: <input type="text" name="pokemonType"
+			value="${pokemonToEdit.type}"><br /> 
 		Pokemon Level: <input type="text" name="pokemonLevel"
-			value="${ThePokemon.listName}"><br /> 
+			value="${pokemonToEdit.level}"><br /> 
 			Pokemon Health: <input type="text" name="pokemonHealth"
-			value="${ThePokemon.listName}"><br /> 
+			value="${pokemonToEdit.hp}"><br /> 
+			<input type="submit" value="Edit Pokemon">
+			<input type="hidden" name="id" value="${pokemonToEdit.id}">
 	</form>
 	<a href="index.html">Go add new items instead.</a>
 </body>
