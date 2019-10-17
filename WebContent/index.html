@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+	function pokemonAdded() {
+		alert("Pokemon Added!");
+	}
+	function validateForm() {
+		//Getting values
+		let name = document.forms["addPokemonForm"]["name"].value;
+		let type = document.forms["addPokemonForm"]["type"].value
+		let level = document.forms["addPokemonForm"]["level"].value
+		let hp = document.forms["addPokemonForm"]["hp"].value
+
+		//Checking for valid input
+		if(name === "") {
+			alert("Must enter information into name");
+			return false;
+		}else if(type === "") {
+			alert("Must enter information into Type");
+			return false;
+		}else if(isNaN(level) || level == "") {
+			alert("Must enter a number in Level");
+			return false;
+		}else if(isNaN(hp) || hp == "") {
+			alert("Must enter a number in HP");
+			return false;
+		}
+	}
+</script>
 <meta charset="ISO-8859-1">
 <title>Pokemon Database</title>
 </head>
 <body>
 	<h2>Pokemon Database</h2>
 	<h3>Insert a new pokemon:</h3>
-	<form action ="addPokemonServlet" method="post">
+	<form action ="addPokemonServlet" method="post" name="addPokemonForm" onsubmit = "return(validateForm());">
 		<p>Name: <input type = "text" name = "name"></p>
 		<p>Type: <input type = "text" name = "type"></p>
-		<p>Level: <input type = "text" name = "level"></p>
-		<p>HP: <input type = "text" name = "hp"></p>
+		<p>Level: <input type = "text" name = "level" id = "pokemonLevel"></p>
+		<p>HP: <input type = "text" name = "hp" id="pokemonHP"></p>
 		<input type = "submit" value ="Add Pokemon">
 	</form>
 	<h4>Or you can do these:</h4>
